@@ -5,6 +5,11 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    theme: {
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif']
+      }
+    }
   },
   plugins: [],
 }
