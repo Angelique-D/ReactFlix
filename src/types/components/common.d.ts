@@ -12,5 +12,5 @@ export interface LinkProps {
 }
 
 export interface DropdownProps {
-    links: Link | Link[];
+    links: Link[];
 }
