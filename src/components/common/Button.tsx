@@ -8,3 +8,5 @@ const Button: React.FC<ButtonProps> = ({label}, {onClick}) => {
         </button>
     );
 };
+
+export default Button;

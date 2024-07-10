@@ -10,11 +10,9 @@ const App: React.FC = () => {
   return (
     <Router>
       <Header title="ReactFlix"/>
-      <div>
         <Routes>
           <Route path='/' element={<HomePage/>} errorElement={<ErrorPage/>}/>
         </Routes>
-      </div>
       <Footer/>
     </Router>
   );
