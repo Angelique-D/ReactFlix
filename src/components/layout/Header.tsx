@@ -9,7 +9,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const listLinks = [
-    { label: "Movies", href: "#" },
+    { label: "Movies", href: "/movies" },
     { label: "Series", href: "#" },
     { label: "Anime", href: "#" },
     { label: "Sign In", href: "#" },
@@ -21,9 +21,11 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
   };
 
   return (
-    <header className="h-2/5 2xl:h-3/5 relative">
+    <header className="h-3/5 2xl:h-4/5 relative">
       <nav className="bg-blue-950/50 backdrop-blur-sm w-11/12 sm:max-w-lg p-1 px-2 sm:py-3 mt-2 text-white flex sm:inline-flex justify-between sm:justify-center fixed left-1/2 transform -translate-x-1/2 rounded-3xl">
-        <h1 className="mr-8 flex items-center">{title}</h1>
+        <h1 className="mr-8 flex items-center">
+          <a href="/">{title}</a>
+        </h1>
 
         <Button
           label={<BurgerMenuIcon />}
@@ -47,7 +49,10 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
         style={{ clipPath: "polygon(0 75%, 100% 85%, 100% 100%, 0 100%)" }}
       />
       {isOpen && (
-        <div className="fixed inset-0 z-10 flex w-full h-full bg-black/50 sm:hidden" onClick={toggleDrawer}>
+        <div
+          className="fixed inset-0 z-10 flex w-full h-full bg-black/50 sm:hidden"
+          onClick={toggleDrawer}
+        >
           <Drawer arrayLinks={listLinks} setIsDrawerOpen={toggleDrawer} />
         </div>
       )}
