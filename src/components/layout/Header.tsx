@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
 
   return (
     <header className="h-3/5 2xl:h-4/5 relative">
-      <nav className="bg-blue-950/50 backdrop-blur-sm w-11/12 sm:max-w-lg p-1 px-2 sm:py-3 mt-2 text-white flex sm:inline-flex justify-between sm:justify-center fixed left-1/2 transform -translate-x-1/2 rounded-3xl">
+      <nav className="bg-blue-950/50 backdrop-blur-sm w-11/12 sm:max-w-lg p-1 px-2 sm:py-3 mt-2 text-white flex sm:inline-flex justify-between sm:justify-center fixed left-1/2 transform -translate-x-1/2 rounded-3xl z-10">
         <h1 className="mr-8 flex items-center">
           <a href="/">{title}</a>
         </h1>

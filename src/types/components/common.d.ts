@@ -1,4 +1,5 @@
 import { Link } from '../link';
+import { Movie } from '../movie';
 
 export interface ButtonProps {
     label: string | React.ReactNode;
@@ -17,4 +18,8 @@ export interface DropdownProps {
 export interface DrawerProps {
     arrayLinks: link[];
     setIsDrawerOpen: (isOpen: boolean) => void;
+}
+
+export interface CardProps {
+    arrayObject?: Movie[];
 }
