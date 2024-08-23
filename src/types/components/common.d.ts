@@ -18,6 +18,7 @@ export interface DropdownProps {
 export interface DrawerProps {
     arrayLinks: link[];
     setIsDrawerOpen: (isOpen: boolean) => void;
+    isSignIn: boolean;
 }
 
 export interface CardProps {

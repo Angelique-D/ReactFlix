@@ -4,20 +4,27 @@ import Drawer from "../common/Drawer";
 import BurgerMenuIcon from "../icons/BurgerMenuIcon";
 import Button from "../common/Button";
 import ListUrlWithArray from "../common/ListUrlWithArray";
+import Login from "../common/Login";
+import SignUp from "../common/SignUp";
+import Modal from "../common/Modal";
+import BackgroundPrimary from "../common/BackgroundPrimary";
 
 const Header: React.FC<HeaderProps> = ({ title }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSignIn, setIsSignIn] = useState(true);
 
   const listLinks = [
     { label: "Movies", href: "/movies" },
     { label: "Series", href: "#" },
     { label: "Anime", href: "#" },
-    { label: "Sign In", href: "#" },
-    { label: "Sign Up", href: "#" },
   ];
 
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
+  };
+
+  const toggleAuth = () => {
+    setIsSignIn(!isSignIn);
   };
 
   return (
@@ -35,27 +42,24 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
 
         <div className={`hidden sm:block items-center`}>
           <ListUrlWithArray arrayLinks={listLinks} />
+          <Button label={isSignIn ? "Sign Up" : "Sign In"} />
         </div>
       </nav>
 
-      <div
-        className="h-full bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/assets/images/imageFromPixlr.png')",
-        }}
-      />
-      <div
-        className="absolute inset-0 bg-white"
-        style={{ clipPath: "polygon(0 75%, 100% 85%, 100% 100%, 0 100%)" }}
-      />
+      <BackgroundPrimary/>
       {isOpen && (
         <div
           className="fixed inset-0 z-10 flex w-full h-full bg-black/50 sm:hidden"
           onClick={toggleDrawer}
         >
-          <Drawer arrayLinks={listLinks} setIsDrawerOpen={toggleDrawer} />
+          <Drawer
+            arrayLinks={listLinks}
+            setIsDrawerOpen={toggleDrawer}
+            isSignIn={isSignIn}
+          />
         </div>
       )}
+      {isSignIn ? <Modal /> : null}
     </header>
   );
 };

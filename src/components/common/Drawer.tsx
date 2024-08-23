@@ -2,8 +2,13 @@ import React from "react";
 import { DrawerProps } from "../../types/components/common";
 import { Link } from "../../types/link";
 import CloseMenu from "../icons/CloseMenu";
+import Button from "./Button";
 
-const Drawer: React.FC<DrawerProps> = ({ arrayLinks, setIsDrawerOpen }) => {
+const Drawer: React.FC<DrawerProps> = ({
+  arrayLinks,
+  setIsDrawerOpen,
+  isSignIn,
+}) => {
   return (
     <>
       <div
@@ -31,7 +36,9 @@ const Drawer: React.FC<DrawerProps> = ({ arrayLinks, setIsDrawerOpen }) => {
         >
           <CloseMenu />
         </button>
+
         <div className="py-4 overflow-y-auto">
+          <Button label={isSignIn ? "Sign Up" : "Sign In"}></Button>
           <ul className="space-y-2 font-medium text-gray-50">
             {arrayLinks.map((link: Link, index: number) => (
               <li>
