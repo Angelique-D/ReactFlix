@@ -24,3 +24,15 @@ export interface DrawerProps {
 export interface CardProps {
     arrayObject?: Movie[];
 }
+
+export interface ModalProps {
+    setIsModalOpen: (isSignIn: boolean) => void;
+}
+
+export interface LoginProps {
+    switchToSignUp: () => void;
+}
+
+export interface SignUpProps {
+    switchToLogin: () => void;
+}

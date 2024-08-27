@@ -4,14 +4,12 @@ import Drawer from "../common/Drawer";
 import BurgerMenuIcon from "../icons/BurgerMenuIcon";
 import Button from "../common/Button";
 import ListUrlWithArray from "../common/ListUrlWithArray";
-import Login from "../common/Login";
-import SignUp from "../common/SignUp";
 import Modal from "../common/Modal";
 import BackgroundPrimary from "../common/BackgroundPrimary";
 
 const Header: React.FC<HeaderProps> = ({ title }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSignIn, setIsSignIn] = useState(true);
+  const [isSignIn, setIsSignIn] = useState(false);
 
   const listLinks = [
     { label: "Movies", href: "/movies" },
@@ -42,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
 
         <div className={`hidden sm:block items-center`}>
           <ListUrlWithArray arrayLinks={listLinks} />
-          <Button label={isSignIn ? "Sign Up" : "Sign In"} />
+          <Button onClick={toggleAuth} label={"Sign In"} />
         </div>
       </nav>
 
@@ -59,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
           />
         </div>
       )}
-      {isSignIn ? <Modal /> : null}
+      {isSignIn ? <Modal setIsModalOpen={toggleAuth} /> : null}
     </header>
   );
 };

@@ -4,7 +4,7 @@ const BackgroundPrimary: React.FC = () => {
   return (
     <>
       <div
-        className="h-full bg-cover bg-center -z-10"
+        className="h-full bg-cover bg-center"
         style={{
           backgroundImage: "url('/assets/images/imageFromPixlr.png')",
         }}
