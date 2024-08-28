@@ -33,6 +33,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
         </h1>
 
         <Button
+          type="button"
           label={<BurgerMenuIcon />}
           className="rounded-full sm:hidden hover:bg-blue-950/60"
           onClick={toggleDrawer}
@@ -40,11 +41,11 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
 
         <div className={`hidden sm:block items-center`}>
           <ListUrlWithArray arrayLinks={listLinks} />
-          <Button onClick={toggleAuth} label={"Sign In"} />
+          <Button type="button" onClick={toggleAuth} label={"Sign In"} />
         </div>
       </nav>
 
-      <BackgroundPrimary/>
+      <BackgroundPrimary />
       {isOpen && (
         <div
           className="fixed inset-0 z-10 flex w-full h-full bg-black/50 sm:hidden"

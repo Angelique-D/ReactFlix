@@ -38,7 +38,10 @@ const Drawer: React.FC<DrawerProps> = ({
         </button>
 
         <div className="py-4 overflow-y-auto">
-          <Button label={isSignIn ? "Sign Up" : "Sign In"}></Button>
+          <Button
+            type="button"
+            label={"Sign In"}
+          ></Button>
           <ul className="space-y-2 font-medium text-gray-50">
             {arrayLinks.map((link: Link, index: number) => (
               <li>

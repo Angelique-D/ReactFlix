@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import { LoginProps } from "../../types/components/common";
 
@@ -6,7 +6,12 @@ const Login: React.FC<LoginProps> = ({ switchToSignUp }) => {
   return (
     <>
       <form className="flex flex-col">
-        <Button className="text-black text-xs self-end" label="Don't have an account ?" onClick={switchToSignUp} />
+        <Button
+          type="button"
+          className="text-black text-xs self-end"
+          label="Don't have an account ?"
+          onClick={switchToSignUp}
+        />
         <label className="block text-blue-950 text-sm font-bold mb-2">
           Email :
         </label>
@@ -29,11 +34,12 @@ const Login: React.FC<LoginProps> = ({ switchToSignUp }) => {
 
         <button
           className="bg-blue-950 text-white font-bold py-2 px-4 rounded"
-          type="button"
+          type="submit"
         >
           Sign In
         </button>
         <Button
+          type="button"
           className="inline-block align-baseline font-bold text-sm text-blue-950 px-4 py-2"
           label="Forgot password ?"
         />

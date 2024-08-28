@@ -5,6 +5,7 @@ export interface ButtonProps {
     label: string | React.ReactNode;
     onClick?: () => void;
     className?: string;
+    type: "button" | "submit";
 }
 
 export interface ListUrlWithArrayProps {

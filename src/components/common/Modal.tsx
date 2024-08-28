@@ -10,7 +10,7 @@ const Modal: React.FC<ModalProps> = ({ setIsModalOpen }) => {
   return (
     <>
       <div className="fixed bottom-0 bg-black/80 h-full w-full z-20 flex justify-center">
-        <div className="bg-white self-center flex flex-col p-4 rounded-xl">
+        <div className="bg-white self-center flex flex-col p-4 rounded-xl w-80">
           <div className="self-end">
             <button
               type="button"
