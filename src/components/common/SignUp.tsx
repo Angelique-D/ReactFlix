@@ -90,9 +90,10 @@ const SignUp: React.FC<SignUpProps> = ({ switchToLogin }) => {
           type={showPassword ? "text" : "password"}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        >
-          
-        </input><span className="" onClick={togglePasswordVisibility}>{showPassword ? <CloseEyes /> : <OpenEyes />}</span>
+        ></input>
+        <span className="" onClick={togglePasswordVisibility}>
+          {showPassword ? <CloseEyes /> : <OpenEyes />}
+        </span>
 
         <label className="block text-blue-950 text-sm font-bold mb-2 mt-2">
           Confirm Password * :

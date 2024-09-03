@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from '../link';
 import { Movie } from '../movie';
 
@@ -10,10 +11,6 @@ export interface ButtonProps {
 
 export interface ListUrlWithArrayProps {
     arrayLinks: link[];
-}
-
-export interface DropdownProps {
-    links: Link[];
 }
 
 export interface DrawerProps {
@@ -36,4 +33,10 @@ export interface LoginProps {
 
 export interface SignUpProps {
     switchToLogin: () => void;
+}
+
+export interface InputProps {
+    label: string;
+    type: "text" | "email" | "password";
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
