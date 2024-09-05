@@ -27,6 +27,8 @@ export interface ModalProps {
     setIsModalOpen: (isSignIn: boolean) => void;
 }
 
+// Forms
+
 export interface LoginProps {
     switchToSignUp: () => void;
 }
@@ -38,5 +40,12 @@ export interface SignUpProps {
 export interface InputProps {
     label: string;
     type: "text" | "email" | "password";
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onInputChange: (value: string) => void;
+}
+
+export interface PasswordCriteriaProps {
+    isLengthValid: boolean;
+    hasDigit: boolean;
+    hasUppercase: boolean;
+    hasSpecialChar: boolean;
 }

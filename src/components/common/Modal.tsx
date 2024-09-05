@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import CloseMenu from "../icons/CloseMenu";
 import { ModalProps } from "../../types/components/common";
-import Login from "./Login";
-import SignUp from "./SignUp";
+import Login from "./forms/Login";
+import SignUp from "./forms/SignUp";
 
 const Modal: React.FC<ModalProps> = ({ setIsModalOpen }) => {
   const [isLogin, setIsLogin] = useState(true);
