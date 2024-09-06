@@ -3,20 +3,26 @@ import Button from "../Button";
 import { LoginProps } from "../../../types/components/common";
 import { UserRepository } from "../../../repositories/UserRepository";
 import Input from "./Input";
+import { useAppDispatch } from "../../../store/hooks";
+import { setToken } from "../../../store/features/token/tokenSlice";
 
 const Login: React.FC<LoginProps> = ({ switchToSignUp }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [messageError, setMessageError] = useState<string>("");
+  const dispatch = useAppDispatch();
 
   const repo: UserRepository = new UserRepository();
 
   const loginUser = async () => {
     try {
-      await repo.loginUser({
+      let json = await repo.loginUser({
         email: email,
         password: password,
       });
+      let token = json.token;
+      dispatch(setToken(token));
+
     } catch (e) {
       if (e instanceof Error) {
         console.log("Error message: ", e.message);
