@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from '../link';
 import { Movie } from '../movie';
 
 export interface ButtonProps {
@@ -35,6 +34,7 @@ export interface LoginProps {
 
 export interface SignUpProps {
     switchToLogin: () => void;
+    closeModal: () => void;
 }
 
 export interface InputProps {

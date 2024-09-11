@@ -7,6 +7,8 @@ import SignUp from "./forms/SignUp";
 const Modal: React.FC<ModalProps> = ({ setIsModalOpen }) => {
   const [isLogin, setIsLogin] = useState(true);
 
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <>
       <div className="fixed bottom-0 bg-black/80 h-full w-full z-20 flex justify-center">
@@ -25,7 +27,7 @@ const Modal: React.FC<ModalProps> = ({ setIsModalOpen }) => {
           { isLogin ? (
             <Login switchToSignUp={() => setIsLogin(false)} />
           ) : (
-            <SignUp switchToLogin={() => setIsLogin(true)}/>
+            <SignUp switchToLogin={() => setIsLogin(true)} closeModal={closeModal} />
           )}
 
         </div>

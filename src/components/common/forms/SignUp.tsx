@@ -8,7 +8,7 @@ import PasswordCriteria from "./PasswordCriteria";
 
 //Vérifier si il pourrait avoir une erreur à cause de confirm password
 
-const SignUp: React.FC<SignUpProps> = ({ switchToLogin }) => {
+const SignUp: React.FC<SignUpProps> = ({ switchToLogin, closeModal }) => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -50,9 +50,17 @@ const SignUp: React.FC<SignUpProps> = ({ switchToLogin }) => {
         password: password,
         name: name,
       });
-
+      
+      closeModal();
       navigate("/");
-    } catch (e) {
+
+    } catch (e: any) {
+      const error = JSON.parse(e.message);
+      if (error.status === 409) {
+        setMessageError("An another account use this email");
+      } else {
+        setMessageError("Error creating account");
+      }
       console.log("Error creating user", e);
     }
   };
@@ -97,7 +105,7 @@ const SignUp: React.FC<SignUpProps> = ({ switchToLogin }) => {
           />
         </div>
 
-        <div className="text-red-700 text-xs mb-2 flex flex-wrap">
+        <div className="text-red-700 text-xs mb-2 flex flex-wrap justify-center">
           {messageError}
         </div>
 

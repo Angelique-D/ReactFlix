@@ -1,5 +1,5 @@
 export abstract class BaseRepository {
-  private host: string = "http//localhost:4059;";
+  private host: string = "http://localhost:4059";
 
   protected request = async (
     path: string,
@@ -21,9 +21,20 @@ export abstract class BaseRepository {
 
       let response: Response = await fetch(this.host + path, options);
 
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(
+          JSON.stringify({
+            status: response.status,
+            message: errorData.message,
+          })
+        );
+      }
+
       return await response.json();
     } catch (e) {
       console.log("Erreur dans la base repo :", e);
+      throw e;
     }
   };
 }
